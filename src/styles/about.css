@@ -1,0 +1,136 @@
+/* ===== Sección Sobre mí (premium) ===== */
+.about {
+  background: #f8faf9;
+  padding: calc(var(--spacing-section) * 0.9) 1rem;
+}
+
+.about__grid {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* texto / KPIs */
+  gap: 40px;
+  align-items: start;
+}
+
+.about__title {
+  font-family: var(--font-title);
+  font-weight: 600; /* semibold */
+  font-size: clamp(22px, 3.2vw, 28px);
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.about__desc {
+  max-width: 62ch;
+  color: #374151;
+  line-height: 1.7;
+}
+
+/* KPIs grid */
+.about__kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Tarjeta con borde degradado sutil */
+.kpi {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 20px; /* 2xl-ish */
+  padding: 16px;
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, rgba(57, 191, 176, 0.28), rgba(57, 191, 176, 0.06))
+      border-box;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.kpi:hover {
+  box-shadow: 0 18px 40px rgba(2, 8, 23, 0.12), 0 8px 18px rgba(2, 8, 23, 0.06);
+}
+
+/* Icono con glow suave */
+.kpi__iconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+    60% 60% at 50% 40%,
+    rgba(57, 191, 176, 0.18),
+    rgba(57, 191, 176, 0.06)
+  );
+  border: 1px solid rgba(57, 191, 176, 0.25);
+  box-shadow: 0 8px 20px rgba(57, 191, 176, 0.15);
+}
+
+.kpi__icon .ico {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+}
+
+/* Texto KPI */
+.kpi__meta {
+  display: grid;
+  gap: 2px;
+}
+.kpi__value {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--color-primary); /* acento turquesa */
+  font-size: 18px;
+  line-height: 1.1;
+}
+.kpi__label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 1fr; /* apilar en tablet */
+    gap: 28px;
+  }
+  .about__kpis {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 40px 1rem;
+  }
+  .about__kpis {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .kpi {
+    padding: 14px;
+  }
+  .kpi__value {
+    font-size: 16px;
+  }
+  .kpi__label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .about__kpis {
+    grid-template-columns: 1fr;
+  } /* teléfonos muy pequeños */
+}
+
+/* Respeto a usuarios con menos animación */
+@media (prefers-reduced-motion: reduce) {
+  .kpi {
+    transition: none !important;
+  }
+}

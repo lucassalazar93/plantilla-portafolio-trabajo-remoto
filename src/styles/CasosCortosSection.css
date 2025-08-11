@@ -1,0 +1,337 @@
+/* =========================================
+   CasosCortosSection.css — VERSIÓN MEJORADA
+   Grid fluida (desktop) + carrusel con snap (móvil)
+   Alturas/anchos consistentes y header estable
+========================================= */
+
+:root {
+  --turq: #39bfb0;
+  --ink: #222;
+  --muted: #555;
+  --line: #e8f0ef;
+  --chip: #e8f6f4;
+
+  /* variantes de chips */
+  --chip-reto-bg: #eef8f7;
+  --chip-reto-tx: #1a3f3b;
+  --chip-reto-br: #cfeae6;
+  --chip-accion-bg: #e8f6f4;
+  --chip-accion-tx: #174b46;
+  --chip-accion-br: #c6e7e2;
+  --chip-resultado-bg: #e1f5f1;
+  --chip-resultado-tx: #123b37;
+  --chip-resultado-br: #bfe3de;
+}
+
+/* ===== Wrapper + encabezado ===== */
+.cases-wrapper {
+  background: #fff;
+  padding: 64px 0;
+}
+.cases-head,
+.cases-grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.cases-title {
+  font: 600 clamp(22px, 2.2vw, 28px) / 1.2 Poppins, system-ui, sans-serif;
+  color: var(--ink);
+  margin: 0 0 6px 0;
+}
+.cases-subtitle {
+  margin: 0;
+  color: #58706d;
+  font-size: 14px;
+}
+
+/* ===== Grid fluida (desktop/tablet) ===== */
+.cases-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: stretch;
+}
+
+/* ===== Tarjeta ===== */
+.cases-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  padding: 18px 18px 14px;
+  display: grid;
+  grid-template-rows: auto 1fr; /* header + contenido */
+  min-height: 260px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.cases-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(2, 8, 23, 0.12), 0 8px 18px rgba(2, 8, 23, 0.06);
+  border-color: #dfe9e7;
+}
+/* foco accesible si haces la tarjeta focusable (tabIndex="0") */
+.cases-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(57, 191, 176, 0.35),
+    0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Ribbon protagonista ===== */
+.cases-ribbon {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  z-index: 2;
+  background: linear-gradient(
+        135deg,
+        rgba(57, 191, 176, 0.98),
+        rgba(46, 169, 156, 0.85)
+      )
+      padding-box,
+    linear-gradient(135deg, rgba(57, 191, 176, 0.25), rgba(57, 191, 176, 0.15))
+      border-box;
+  border: 1px solid transparent;
+  color: #fff;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(57, 191, 176, 0.35),
+    0 6px 16px rgba(57, 191, 176, 0.2);
+}
+.cases-ribbonTop {
+  line-height: 1;
+}
+.cases-ribbonNum {
+  font-size: 20px;
+  font-weight: 800;
+}
+.cases-ribbonCaption {
+  font-size: 11px;
+  opacity: 0.95;
+}
+
+/* ===== Header estable (espacio para ribbon) ===== */
+.cases-cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding-right: 140px; /* reserva para el ribbon */
+  min-height: 48px;
+  position: relative;
+  z-index: 1;
+}
+.cases-titleWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0; /* permite que el título flexione */
+}
+.cases-iconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: #ecfffc;
+  border: 1px solid #d2f2ec;
+}
+.cases-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--turq);
+}
+
+/* Título */
+.cases-cardTitle {
+  margin: 0;
+  color: #111827;
+  font-weight: 700;
+  line-height: 1.25;
+  font-size: 18px;
+  white-space: normal;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* ===== Filas Reto / Acción / Resultado ===== */
+.cases-rows {
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+  align-content: start;
+}
+.cases-row {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 8px;
+}
+.cases-badge {
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-grid;
+  place-items: center;
+  background: var(--chip);
+  color: #1f6b65;
+  border: 1px solid #d7ece9;
+}
+.cases-badge--reto {
+  background: var(--chip-reto-bg);
+  color: var(--chip-reto-tx);
+  border-color: var(--chip-reto-br);
+}
+.cases-badge--accion {
+  background: var(--chip-accion-bg);
+  color: var(--chip-accion-tx);
+  border-color: var(--chip-accion-br);
+}
+.cases-badge--resultado {
+  background: var(--chip-resultado-bg);
+  color: var(--chip-resultado-tx);
+  border-color: var(--chip-resultado-br);
+}
+
+.cases-text {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: normal;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* ===== Carrusel móvil con scroll-snap ===== */
+@media (max-width: 768px) {
+  .cases-grid {
+    display: flex;
+    gap: 14px;
+    padding: 0 16px 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+
+    /* desvanecidos laterales sutiles */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent 100%
+    );
+  }
+  .cases-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .cases-grid {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .cases-card {
+    flex: 0 0 88vw; /* ocupa casi toda la pantalla */
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    min-height: 60vh;
+    padding: 16px;
+  }
+
+  .cases-cardHead {
+    padding-right: 120px;
+  }
+  .cases-ribbon {
+    top: 10px;
+    right: 8px;
+    padding: 6px 9px;
+  }
+  .cases-ribbonNum {
+    font-size: 18px;
+  }
+  .cases-cardTitle {
+    font-size: 17px;
+  }
+
+  /* truncado inteligente solo en móvil */
+  .cases-cardTitle,
+  .cases-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .cases-wrapper {
+    padding: 48px 0;
+  }
+}
+
+/* ===== Reduce motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .cases-card {
+    transition: none !important;
+  }
+  .hint::after {
+    animation: none !important;
+  }
+}
+
+/* --- Pistas visuales de “desliza” en móvil --- */
+@media (max-width: 768px) {
+  .hint {
+    position: relative;
+  }
+  .hint::after {
+    content: "";
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    border-right: 3px solid rgba(57, 191, 176, 0.55);
+    border-top: 3px solid rgba(57, 191, 176, 0.55);
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0.7;
+    pointer-events: none;
+    animation: hint-nudge 1.8s ease-in-out infinite;
+  }
+  @keyframes hint-nudge {
+    0%,
+    100% {
+      transform: translate(0, -50%) rotate(45deg);
+    }
+    50% {
+      transform: translate(6px, -50%) rotate(45deg);
+    }
+  }
+}
+
+/* cuando el autopan está activo (opcional para estilos) */
+.cases-autopan-on {
+  /* ejemplo: resaltar sutilmente */
+  /* outline: 2px solid rgba(57, 191, 176, 0.2); */
+}

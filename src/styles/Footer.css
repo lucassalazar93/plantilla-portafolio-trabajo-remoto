@@ -1,0 +1,242 @@
+:root {
+  --turq: #39bfb0;
+  --ink: #222;
+  --muted: #58706d;
+  --line: #e8f0ef;
+  --chip: #f0f7f6;
+}
+
+/* ===== Base ===== */
+.footer {
+  background: #f8faf9;
+  border-top: 1px solid var(--line);
+}
+.footer__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1.2fr 1fr 1fr;
+}
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Brand ===== */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.brand__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--turq);
+  box-shadow: 0 0 0 6px rgba(57, 191, 176, 0.14);
+}
+.brand__name {
+  font: 700 18px/1.2 Poppins, system-ui, sans-serif;
+  color: var(--ink);
+}
+.brand__tag {
+  margin: 8px 0 14px;
+  color: #3b4a48;
+  font-size: 14px;
+}
+
+.contactMini {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.contactMini li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #3b4a48;
+  font-size: 14px;
+}
+.ico {
+  width: 18px;
+  height: 18px;
+  color: #1f6b65;
+}
+.link {
+  color: #1f6b65;
+  text-underline-offset: 2px;
+}
+.link:hover {
+  color: #0e8f81;
+}
+
+/* ===== Navegación ===== */
+.colTitle {
+  font: 700 14px/1.2 Poppins, system-ui, sans-serif;
+  color: #1e2b2a;
+  margin: 4px 0 10px;
+}
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.navList a {
+  color: #3b4a48;
+  font-size: 14px;
+  text-decoration: none;
+  position: relative;
+}
+.navList a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: var(--turq);
+  transition: width 0.25s ease;
+}
+.navList a:focus-visible,
+.navList a:hover {
+  color: #0e8f81;
+}
+.navList a:hover::after,
+.navList a:focus-visible::after {
+  width: 100%;
+}
+
+/* ===== CTA derecha ===== */
+.footer__cta {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.cta__txt {
+  margin: 0 0 4px;
+  color: #3b4a48;
+  font-size: 14px;
+}
+.cta__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease, border-color 0.2s ease;
+}
+.btn--white {
+  background: #fff;
+  color: #1f6b65;
+  border-color: var(--line);
+}
+.btn--white:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(2, 8, 23, 0.12);
+  color: #0e8f81;
+}
+.btn--ghost {
+  background: transparent;
+  color: #1f6b65;
+  border-color: #d7ece9;
+}
+.btn--ghost:hover {
+  background: #e8f6f4;
+}
+
+/* ===== Bottom ===== */
+.footer__bottom {
+  border-top: 1px solid var(--line);
+  background: #ffffff;
+}
+.bottom__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.copy {
+  color: #5a6b69;
+  font-size: 13px;
+}
+.social {
+  display: flex;
+  gap: 10px;
+}
+.social__a {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #f6fbfa;
+  border: 1px solid #dfe9e7;
+  color: #1f6b65;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+.social__a:hover {
+  background: #e8f6f4;
+  border-color: #d7ece9;
+  color: #0e8f81;
+  transform: translateY(-1px);
+}
+
+/* Accesibilidad */
+.navList a:focus-visible,
+.link:focus-visible,
+.social__a:focus-visible,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(57, 191, 176, 0.35);
+  border-color: #cde9e5;
+}
+
+/* Crédito del diseñador */
+.credit {
+  color: #5a6b69;
+  font-size: 13px;
+}
+.credit__link {
+  color: #1f6b65;
+  text-underline-offset: 2px;
+}
+.credit__link:hover {
+  color: #0e8f81;
+}
+
+@media (max-width: 640px) {
+  .bottom__inner {
+    gap: 8px;
+  }
+  .credit {
+    order: 2; /* se acomoda bien entre copy y social en móviles */
+  }
+}

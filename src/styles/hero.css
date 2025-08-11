@@ -1,0 +1,396 @@
+/* ===========================
+   HERO — Estilos completos (responsive first)
+=========================== */
+.hero {
+  position: relative;
+  padding: var(--spacing-section) 1rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Fondo radial suave extra */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -10% -10% auto -10%;
+  height: 55%;
+  background: radial-gradient(
+      60% 60% at 20% 20%,
+      rgba(57, 191, 176, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      40% 40% at 80% 10%,
+      rgba(57, 191, 176, 0.1),
+      transparent 60%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr; /* ~60/40 desktop */
+  gap: 48px;
+  align-items: center;
+}
+
+/* ===== Columna texto ===== */
+.hero__content {
+}
+
+.hero__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: #ecfffc;
+  border: 1px solid #bdf1ea;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 12px;
+}
+.hero__availability .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+
+/* Branding grande */
+.hero__brand {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(20px, 3.4vw, 28px);
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #1f2937 0%, #39bfb0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 6px;
+}
+
+.hero__title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(26px, 4.5vw, 44px);
+  line-height: 1.15;
+  color: var(--color-dark);
+}
+
+.hero__subtitle {
+  margin-top: 10px;
+  max-width: 56ch;
+  color: #475569;
+  font-size: clamp(15px, 1.9vw, 16px);
+}
+
+.hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.chip {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px; /* más “tap target” */
+  font-size: 13px;
+  color: #374151;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.chip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  padding: 12px 16px; /* altura accesible */
+  min-height: 48px; /* “tap friendly” */
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease;
+}
+.btn .ico {
+  width: 18px;
+  height: 18px;
+}
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(57, 191, 176, 0.25);
+}
+.btn--primary:hover {
+  transform: translateY(-1px);
+}
+.btn--secondary {
+  background: #fff;
+  color: var(--color-dark);
+  border: 1px solid #e5e7eb;
+}
+.btn--secondary:hover {
+  background: #f8fafc;
+}
+
+/* LinkedIn con color oficial */
+.btn--linkedin {
+  border-color: #0a66c2 !important;
+  color: #0a66c2 !important;
+}
+.btn--linkedin .ico {
+  stroke: #0a66c2;
+}
+
+/* Accesibilidad focus */
+.btn:focus-visible,
+.chip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(57, 191, 176, 0.35);
+}
+
+.hero__stats {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  -webkit-backdrop-filter: saturate(140%) blur(2px);
+  backdrop-filter: saturate(140%) blur(2px);
+}
+.stat__icon {
+  opacity: 0.8;
+}
+.stat__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+}
+.stat__value {
+  font-weight: 700;
+  font-size: 14px;
+  color: #111827;
+}
+
+/* ===== Columna foto ===== */
+.hero__photoWrap {
+  position: relative;
+  max-width: 420px;
+  margin-inline: auto;
+  overflow: visible; /* deja ver la etiqueta debajo */
+}
+.hero__glass {
+  position: absolute;
+  inset: -14px -14px -56px -14px; /* base extra para alojar el nombre debajo */
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.5);
+  filter: blur(0.5px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 28px 70px rgba(2, 8, 23, 0.1),
+    0 8px 24px rgba(57, 191, 176, 0.1);
+  z-index: 0;
+}
+.hero__photo {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4/5;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(135deg, #f7fffd, #ffffff);
+}
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+/* Nombre bajo el marco (glass tag) */
+.hero__name {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: -48px; /* justo por fuera, pegado al borde inferior */
+  z-index: 2;
+  text-align: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+  backdrop-filter: blur(8px) saturate(130%);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 22px 40px rgba(2, 8, 23, 0.14), 0 10px 24px rgba(2, 8, 23, 0.1),
+    0 2px 6px rgba(2, 8, 23, 0.06);
+}
+.hero__name h2 {
+  font-family: var(--font-title);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin: 0;
+}
+.hero__name p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* ===== FAB WhatsApp en móvil ===== */
+.whatsapp-fab {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom)); /* respeta notch */
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(57, 191, 176, 0.35);
+}
+.whatsapp-fab .ico {
+  width: 18px;
+  height: 18px;
+}
+@media (min-width: 768px) {
+  .whatsapp-fab {
+    display: none;
+  }
+}
+
+/* ===== Tablets (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 56px 1rem;
+  }
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .hero__photoWrap {
+    max-width: 440px;
+  }
+  .hero__name {
+    bottom: -28px;
+  }
+  .hero__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ===== Móviles (≤768px) ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 44px 1rem 72px;
+  } /* espacio extra para el FAB */
+  .hero::before {
+    height: 45%;
+  }
+  .hero__brand {
+    font-size: clamp(18px, 4.6vw, 24px);
+  }
+  .hero__title {
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 1.15;
+  }
+  .hero__subtitle {
+    font-size: 15px;
+  }
+  .hero__ctas {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .btn--secondary {
+    background: #fff;
+  }
+  .hero__photoWrap {
+    max-width: 360px;
+  }
+  .hero__glass {
+    inset: -10px -10px -48px -10px;
+  }
+  .hero__name {
+    bottom: -16px;
+    left: 14px;
+    right: 14px;
+  }
+}
+
+/* ===== Teléfonos pequeños (≤400px) ===== */
+@media (max-width: 400px) {
+  .hero {
+    padding: 36px 12px 72px;
+  }
+  .hero__brand {
+    font-size: 18px;
+  }
+  .hero__title {
+    font-size: 22px;
+  }
+  .chip {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .hero__photoWrap {
+    max-width: 320px;
+  }
+  .hero__name h2 {
+    font-size: 15px;
+  }
+  .hero__name p {
+    font-size: 11px;
+  }
+}
+
+/* Reducir animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .chip {
+    transition: none !important;
+  }
+}

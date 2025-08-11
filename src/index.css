@@ -1,0 +1,139 @@
+/* ==============================
+   VARIABLES GLOBALES
+============================== */
+:root {
+  /* Tipografía */
+  --font-title: "Poppins", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+
+  /* Colores de marca */
+  --color-primary: #39bfb0; /* Turquesa principal */
+  --color-dark: #333333; /* Gris oscuro */
+  --color-light: #f5f5f5; /* Gris claro */
+  --color-white: #ffffff;
+
+  /* Sombras */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.06);
+
+  /* Espaciados */
+  --spacing-section: 64px;
+}
+
+/* ==============================
+   RESET BÁSICO
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==============================
+   TIPOGRAFÍA
+============================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--color-dark);
+}
+
+/* ==============================
+   ENLACES
+============================== */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+a:hover {
+  color: #2da296;
+}
+
+/* ==============================
+   BOTONES BASE
+============================== */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+button.primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+button.primary:hover {
+  background-color: #2da296;
+}
+button.secondary {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+button.secondary:hover {
+  background-color: #e6e6e6;
+}
+
+/* ==============================
+   SECCIONES
+============================== */
+section {
+  padding: var(--spacing-section) 1rem;
+}
+
+/* ==============================
+   UTILIDADES
+============================== */
+.text-center {
+  text-align: center;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 768px) {
+  :root {
+    --spacing-section: 48px;
+  }
+}

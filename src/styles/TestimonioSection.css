@@ -1,0 +1,216 @@
+:root {
+  --ink: #222;
+  --muted: #58706d;
+  --line: #e8f0ef;
+  --turq: #39bfb0;
+}
+
+/* Wrapper / encabezado */
+.testimonial {
+  background: #fff;
+  padding: 64px 0;
+}
+.testimonial__head,
+.t-slider {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.testimonial__title {
+  font: 600 clamp(22px, 2.2vw, 28px) / 1.2 Poppins, system-ui, sans-serif;
+  color: var(--ink);
+}
+.testimonial__subtitle {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Slider */
+.t-slider {
+  position: relative;
+}
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  display: grid;
+  place-items: center;
+  padding: 8px 0 10px;
+}
+
+/* Tarjeta */
+.t-card {
+  width: min(820px, 100% - 32px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  padding: 26px 26px 20px;
+  position: relative;
+  min-height: 200px;
+  isolation: isolate;
+}
+/* banda superior sutil */
+.t-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(57, 191, 176, 0.18),
+    rgba(57, 191, 176, 0.06)
+  );
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Cita + comillas decorativas */
+.t-quoteWrap {
+  position: relative;
+  padding: 0 36px;
+}
+.t-quote {
+  position: relative;
+  z-index: 2;
+}
+.t-quote p {
+  margin: 16px 0;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #27343a;
+  word-break: break-word;
+}
+.t-quoteMark {
+  position: absolute;
+  color: rgba(57, 191, 176, 0.14);
+  font-size: 64px;
+  line-height: 1;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.t-quoteMark--left {
+  left: 0;
+  top: 0;
+  transform: translate(-55%, -35%);
+}
+.t-quoteMark--right {
+  right: 0;
+  bottom: 0;
+  transform: translate(55%, 35%);
+}
+
+/* Resaltado moderno para cifras / keywords */
+.t-hl {
+  background: rgba(57, 191, 176, 0.15);
+  color: #1f6b65;
+  font-weight: 700;
+  padding: 0.05em 0.4em;
+  border-radius: 6px;
+}
+
+/* Autor */
+.t-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.t-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #d7ece9;
+  background: #e8f6f4;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.t-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.t-initials {
+  color: #1f6b65;
+  font-weight: 700;
+}
+.t-meta {
+  display: flex;
+  flex-direction: column;
+}
+.t-name {
+  font-weight: 600;
+  color: #24323a;
+  font-size: 16px;
+}
+.t-role {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Dots tipo píldora */
+.t-dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.t-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: #dce7e5;
+  transition: width 0.25s ease, background 0.2s ease, transform 0.2s ease;
+}
+.t-dot.is-active {
+  width: 20px;
+  background: var(--turq);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (min-width: 760px) {
+  .embla__slide {
+    padding: 10px 0 12px;
+  }
+}
+@media (max-width: 560px) {
+  .t-quoteMark {
+    font-size: 54px;
+  }
+  .t-quoteMark--left {
+    transform: translate(-50%, -30%);
+  }
+  .t-quoteMark--right {
+    transform: translate(50%, 30%);
+  }
+  .t-quoteWrap {
+    padding: 0 28px;
+  }
+}
+@media (max-width: 480px) {
+  .testimonial {
+    padding: 48px 0;
+  }
+  .t-card {
+    padding: 22px 18px 18px;
+  }
+  .t-quote p {
+    font-size: 18px;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .t-dot {
+    transition: none !important;
+  }
+}
